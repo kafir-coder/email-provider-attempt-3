@@ -8,8 +8,9 @@ app.use(express.json());
 
 app.post('/send-email', function(){
 
-  mailjet.connect('321f118c453276731c34a067d90f258f', '6169fc163c88611b26194e8895975eee')
-  const request = mailjet
+  const connection = mailjet.connect('321f118c453276731c34a067d90f258f', '6169fc163c88611b26194e8895975eee')
+
+  const request = connection
     .post("send", {'version': 'v3.1'})
     .request({
       "Messages":[
